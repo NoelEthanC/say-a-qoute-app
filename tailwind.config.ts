@@ -19,25 +19,25 @@ module.exports = {
       },
     },
     extend: {
-      backgroundColors: {
-        "saq-primary": "rgb(var(--color-bg-primary) / <alpha-value>)",
-        "saq-secondary": "rgb(var(--color-bg-secondary) / <alpha-value>)",
-        "saq-secondary-100":
-          "rgb(var(--color-bg-secondary-100) / <alpha-value>)",
-      },
       colors: {
         // for the say a qoute project
-        "saq-primary": "rgb(var(--color-bg-primary) / <alpha-value>)",
-        "saq-secondary": "rgb(var(--color-bg-secondary) / <alpha-value>)",
-        "saq-secondary-100":
-          "rgb(var(--color-bg-secondary-100) / <alpha-value>)",
+        "dark-gray-900": "#1E1E1E ", // dark mode colors
+        "dark-gray-800": "#2d2d2d", // dark mode colors
+        "dark-gray-700": "#454545", // dark mode colors
 
-        "saq-primary-color": "rgb(var(--color-primary) / <alpha-value>)",
-        "saq-primary-deep": "rgb(var(--color-primary-deep) / <alpha-value>)",
+        "pure-white": "#ffffff",
+        "soft-white": "#e0e0e0",
 
-        "saq-primary-write": "rgb(var(--color-text-primary) / <alpha-value>)",
-        "saq-secondary-write":
-          "rgb(var(--color-text-secondary) / <alpha-value>)",
+        "saq-green": "#4caf50",
+        "deep-green": "#005100",
+
+        "light-gray-900": "#f8f8f8", //light mode colors
+        "light-gray-800": "#eeeeee", //light mode colors
+        "light-gray-700": "#c5cfc5", //light mode colors
+
+        "pure-gray": "#333333",
+        "soft-gray": "#5c5c5c",
+
         // from shadcn UI
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

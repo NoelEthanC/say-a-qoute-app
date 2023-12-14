@@ -2,7 +2,11 @@ import HeroSection from "@/components/hero-section/HeroSection";
 import QouteSection from "@/components/quote-section/QuoteSection";
 import { ScrollShadow } from "@nextui-org/react";
 
-const MainPage = async () => {
+const MainPage = async ({
+  searchParams,
+}: {
+  searchParams: { category: string | string[] | undefined };
+}) => {
   return (
     <main
       className=" bg-light-gray-900  dark:bg-dark-gray-900  text-pure-gray dark:text-pure-white
@@ -15,7 +19,7 @@ const MainPage = async () => {
         </header>
         <main className="pt-24 lg:w-1/2 lg:py-14">
           <section className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
-            <QouteSection />
+            <QouteSection category={searchParams.category} />
           </section>
         </main>
       </div>

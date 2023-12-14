@@ -46,7 +46,6 @@ export type Quote = {
 const AddQuote = FormSchema.omit({ id: true });
 export async function addQuote(prevState: Quote | null, formData: FormData) {
   // Get and validate form Data
-  console.log("quote invoked");
   const validatedFields = AddQuote.safeParse({
     author: formData.get("author"),
     category: formData.get("category"),
@@ -81,14 +80,30 @@ export async function addQuote(prevState: Quote | null, formData: FormData) {
 // setTotalPages by fetching all data count and divide by 10
 
 // fetch 10 documents from the db
-export async function fetchPaginatedQuotes() {
+export async function fetchPaginatedQuotes(
+  category: string | string[] | undefined
+) {
   // define quotes collection ref
   const quotesCollectionRef = collection(db, "quotes");
-  const getPaginatedQuotesQuery = query(
-    quotesCollectionRef,
-    orderBy("created_at", "desc"),
-    limit(10)
-  );
+  let getPaginatedQuotesQuery;
+
+  if (category) {
+    // If category is defined, include it in the query
+    getPaginatedQuotesQuery = query(
+      quotesCollectionRef,
+      orderBy("created_at", "desc"),
+      limit(10),
+      where("category", "==", category)
+    );
+  } else {
+    // If category is undefined, fetch all quotes without filtering by category
+    getPaginatedQuotesQuery = query(
+      quotesCollectionRef,
+      orderBy("created_at", "desc"),
+      limit(10)
+    );
+  }
+
   try {
     // get 10 documents using,  orderby, endafter, startfrom, limit
     const quotesSnapshot = await getDocs(getPaginatedQuotesQuery);
@@ -117,11 +132,9 @@ export async function likeAction(quoteID: string) {
   if (!cookiesList.has(cookieName)) {
     const like_id = `${randomUUID(6)}-${quoteID}`;
 
-    console.log("user dont have that cookie, adding that cookie now...");
-
-    // const oneYear = 365 * 24 * 60 * 60 * 1000; // milliseconds in a year
-    const oneMonth = 30 * 24 * 60 * 60 * 1000; // milliseconds in a year
-    cookies().set(cookieName, like_id);
+    const maxAgeInDays = 90;
+    const maxAgeInSeconds = maxAgeInDays * 24 * 60 * 60;
+    cookies().set(cookieName, like_id, { maxAge: maxAgeInSeconds });
 
     await setDoc(
       doc(quoteLikesRef, like_id),
@@ -131,7 +144,6 @@ export async function likeAction(quoteID: string) {
       { merge: true }
     );
   } else {
-    console.log("user  have that cookie, deleting it now...");
     const like_id = cookiesList.get(cookieName)?.value;
     await deleteDoc(doc(quoteLikesRef, like_id));
     cookies().delete(cookieName);

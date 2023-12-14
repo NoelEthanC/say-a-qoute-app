@@ -15,6 +15,7 @@ const QuoteCard = async ({ quote }: { quote: DbQuote | any }) => {
     >
       {/* Like and Likes count button */}
       <ClickableLikeButton
+      key={quote.id}
         likeCookie={likeCookie}
         quoteID={quote.id}
         likes={likes}

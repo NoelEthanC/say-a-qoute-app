@@ -72,7 +72,7 @@ const HeroSection = () => {
                 <footer className="mt-4">
                   {/* <div className="flex"> */}
                   <div className="pl-5 flex gap-x-2 dark:text-light-gray-700 text-dark-gray-700/90 ">
-                    <span className="">&#8210;</span>
+                    <span className="">`&#8210;`</span>
                     <p className=""> Cory House</p> |
                     <span className=" "> Programmer </span>
                     {/* </div> */}

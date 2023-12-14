@@ -14,19 +14,19 @@ const ClickableLikeButton = (props: {
   const { quoteID, likes, likeCookie } = props;
   const controls = useAnimation();
   const [transition, setTransition] = useState(false);
-  const [optimisticLikes, addOptimitisticLikes] = useOptimistic<any[]>(
-    likes,
-    (state: any[], newLike: string) => {
-      if (likeCookie) {
-        return state.filter((like) => like.id !== likeCookie);
-      } else {
-        return [...state, { cookie: newLike }];
-      }
-    }
-  );
+  // const [optimisticLikes, addOptimisticLikes] = useOptimistic<any[]>(
+  //   likes,
+  //   (state: any[], newLike: string) => {
+  //     if (likeCookie) {
+  //       return state.filter((like) => like.id !== likeCookie);
+  //     } else {
+  //       return [...state, { cookie: newLike }];
+  //     }
+  //   }
+  // );
   const handleLikeButtonToggling = async (quoteID: string) => {
     setTransition(true);
-    addOptimitisticLikes(quoteID);
+    // addOptimisticLikes(quoteID);
     try {
       const d = await likeAction(quoteID);
       // Trigger animation when the like button is clicked

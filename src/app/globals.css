@@ -41,8 +41,7 @@
   .light {
     --color-bg-primary: #f8f8f8;
     --color-bg-secondary: #eeeeee ;
-    --color-bg-secondary-100: #c5c5c5
-     ;
+    --color-bg-secondary-100: #c5c5c5;
     --color-primary: #4caf50;
     --color-primary-deep: #005100;
     
@@ -95,7 +94,7 @@
  
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border  ;
   } 
   
 }

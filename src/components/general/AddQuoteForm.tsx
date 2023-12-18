@@ -107,7 +107,7 @@ const AddQuoteForm = () => {
         </div>
 
         {formState.error && <InputError> {formState.dbError} </InputError>}
-        <div className="flex w-full mt-6">
+        <div className="flex w-full  mt-6">
           <SubmitButton />
         </div>
       </form>

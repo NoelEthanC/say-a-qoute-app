@@ -8,6 +8,7 @@ import { NextJSBlob, SaqGreenBlob } from "@/components/general/GlowingBlobs";
 import { ModeToggle } from "@/components/general/ThemeToggle";
 import { ScrollShadow } from "@nextui-org/react";
 import { Toaster } from "@/components/ui/toaster";
+import clsx from "clsx";
 
 export const metadata: Metadata = {
   title: "Say a Qoute",
@@ -20,12 +21,16 @@ export default function RootLayout(props: {
 }) {
   return (
     <html lang="en">
-      <body className={playfair.className}>
-        <ThemeProvider attribute="class" defaultTheme="light">
+      <body
+        className={clsx(
+          playfair.className,
+          "bg-light-gray-700  dark:bg-dark-gray-900 "
+        )}
+      >
+        <ThemeProvider attribute="class" defaultTheme="dark">
           <NextUIProviders>
-            {/* <ScrollShadow size={100} className="scroll-mt-16  w-full h-screen"> */}
             <ModeToggle />
-            {/* <GhostVerticalText /> */}
+            <GhostVerticalText />
             <NextJSBlob />
             <SaqGreenBlob />
             <>
@@ -33,7 +38,6 @@ export default function RootLayout(props: {
               {props.modal}
               {props.children}
             </>
-            {/* </ScrollShadow> */}
           </NextUIProviders>
         </ThemeProvider>
       </body>

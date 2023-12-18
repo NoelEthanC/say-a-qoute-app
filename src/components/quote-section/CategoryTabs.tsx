@@ -26,6 +26,7 @@ const CategoryTabs = () => {
 
     router.replace(`${pathname}?${params.toString()}`);
   };
+
   return (
     <div className="flex w-full flex-col">
       <Tabs

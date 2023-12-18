@@ -15,7 +15,7 @@ const QuoteCard = async ({ quote }: { quote: DbQuote | any }) => {
     >
       {/* Like and Likes count button */}
       <ClickableLikeButton
-      key={quote.id}
+        key={quote.id}
         likeCookie={likeCookie}
         quoteID={quote.id}
         likes={likes}
@@ -40,7 +40,7 @@ const QuoteCard = async ({ quote }: { quote: DbQuote | any }) => {
           </div>
 
           <div className="flex gap-x-3  pl-5 mt-4 ">
-            <span className="bg-green-800/50 text-lime-300 text-base rounded-full px-3  ">
+            <span className="bg-saq-green text-green-100 text-base rounded-full px-3  ">
               {quote.category}
             </span>
           </div>

@@ -102,10 +102,9 @@ const AddQuoteForm = () => {
           </div>
         </div>
 
-        {/* {state?.message && <InputError> state?.errors.quote </InputError>} */}
-        {/* <div className="flex w-full mt-6"> */}
-        <SubmitButton />
-        {/* </div> */}
+        <div className="flex w-full mt-6">
+          <SubmitButton />
+        </div>
       </form>
 
       <div className=" mt-4 ">

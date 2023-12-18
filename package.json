@@ -19,6 +19,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "cookies-next": "^4.1.0",
+    "directory-tree-ascii": "^1.0.10",
     "firebase": "^10.7.1",
     "firebase-admin": "^12.0.0",
     "framer-motion": "^10.16.15",
